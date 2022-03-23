@@ -1,0 +1,57 @@
+SWA:
+Switch>enable
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname SWA
+SWA(config)#vtp mode server
+Device mode already VTP SERVER.
+SWA(config)#vtp domain cqucc
+Changing VTP domain name from NULL to cqucc
+SWA(config)#vtp password 12345
+Setting device VLAN database password to 12345
+SWA(config)#vlan 10
+SWA(config-vlan)#exit
+SWA(config)#vlan 20
+SWA(config-vlan)#exit
+SWA(config)#interface fa0/1
+SWA(config-if)#switchport mode access
+SWA(config-if)#switchport access vlan 10
+SWA(config-if)#exit
+SWA(config)#interface fa0/2
+SWA(config-if)#switchport mode access
+SWA(config-if)#switchport access vlan 20
+SWA(config-if)#exit
+SWA(config)#interface fa0/24
+SWA(config-if)#switchport mode trunk
+SWA(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/24, changed state to down
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/24, changed state to up
+SWA(config-if)#end
+SWA#
+
+
+
+SWB：
+Switch>enable
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname SWB
+SWB(config)#vtp mode client
+Setting device to VTP CLIENT mode.
+SWB(config)#vtp domain cqucc
+Changing VTP domain name from cqyc to cqucc
+SWB(config)#vtp password 12345
+Password already set to 12345
+SWB(config)#interface fa0/1
+SWB(config-if)#switchport mode access
+SWB(config-if)#switchport access vlan 10
+SWB(config-if)#exit
+SWB(config)#interface fa0/2
+SWB(config-if)#switchport mode access
+SWB(config-if)#switchport access vlan 20
+SWB(config-if)#end
+SWB#
+%SYS-5-CONFIG_I: Configured from console by console
+
+
+

@@ -1,0 +1,57 @@
+﻿Router1配置命令:
+en
+conf t 
+router rip
+version 2
+no auto-summary 
+network 192.168.0.228
+network 192.168.1.16
+network 192.168.0.232
+
+Router2配置命令:
+en
+conf t 
+router rip
+version 2
+no auto-summary 
+network 192.168.0.228
+network 192.168.0.236
+network 192.168.1.24
+
+
+Router3配置命令:
+en
+conf t 
+router rip
+version 2
+no auto-summary 
+network 192.168.0.236
+network 192.168.0.232
+network 192.168.1.20
+
+Router4配置命令:
+en
+conf t 
+router rip
+version 2
+no auto-summary 
+network 172.16.1.0
+network 192.168.1.16
+
+Router5配置命令:
+en
+conf t 
+router rip
+version 2
+no auto-summary 
+network 172.16.2.0
+network 192.168.1.20
+
+Router6配置命令:
+en
+conf t 
+router rip
+version 2
+no auto-summary 
+network 172.16.3.0
+network 192.168.1.24

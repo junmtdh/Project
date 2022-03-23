@@ -1,0 +1,35 @@
+enable
+configure terminal
+hostname SA
+vlan 2
+vlan 3
+exit
+
+conf t
+interface range fa0/2
+switchport access vlan 2
+
+interface range fa0/3
+switchport access vlan 3
+
+interface fa0/1
+switchport mode trunk
+
+switchport trunk allowed vlan all
+
+enable
+configure terminal
+hostname RA
+interface fa0/0.1
+encapsulation dot1Q 2
+ip address 192.168.1.254 255.255.255.0
+
+
+interface fa0/0.2
+encapsulation dot1Q 3
+ip address 192.168.2.254 255.255.255.0
+exit
+interface fa0/0
+shutdown
+no shutdownend
+

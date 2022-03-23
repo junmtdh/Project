@@ -1,0 +1,32 @@
+r0:
+en
+conf t
+router rip
+version 2
+network 30.30.30.0
+network 10.10.10.0
+exit
+ip access-list extended 101
+deny tcp 50.50.50.0 0.0.0.255 host 30.30.30.100 eq www
+deny tcp 40.40.40.0 0.0.0.255 host 30.30.30.100 eq ftp
+permit ip any any
+exit
+int s0/0/1
+ip access-group 101 in
+
+r1:
+en
+conf t
+router rip
+version 2
+network 10.10.10.0
+network 20.20.20.0
+
+r3:
+en
+conf t
+router rip
+version 2
+network 20.20.20.0
+network 40.40.40.0
+network 50.50.50.0

@@ -1,0 +1,51 @@
+Router1配置命令:
+en
+conf t 
+router ospf 1
+router-id 1.1.1.1
+network 192.168.0.228 0.0.0.3 area 0
+network 192.168.1.16  0.0.0.3 area 0
+network 192.168.0.232 0.0.0.3 area 0
+
+Router2配置命令:
+en
+conf t 
+router ospf 2
+router-id 2.2.2.2
+network 192.168.0.228 0.0.0.3 area 0
+network 192.168.0.236 0.0.0.3 area 0
+network 192.168.1.24  0.0.0.3 area 0
+
+
+Router3配置命令:
+en
+conf t 
+router ospf 3
+router-id 3.3.3.3
+network 192.168.0.236 0.0.0.3 area 0
+network 192.168.0.232 0.0.0.3 area 0
+network 192.168.1.20  0.0.0.3 area 0
+
+Router4配置命令:
+en
+conf t 
+router ospf 4
+router-id 4.4.4.4
+network 172.16.1.0 0.0.0.255 area 0
+network 192.168.1.16 0.0.0.3 area 0
+
+Router5配置命令:
+en
+conf t 
+router ospf 5
+router-id 5.5.5.5
+network 172.16.2.0 0.0.0.255 area 0
+network 192.168.1.20 0.0.0.3 area 0
+
+Router6配置命令:
+en
+conf t
+router ospf 6
+router-id 6.6.6.6
+network 172.16.3.0 0.0.0.255 area 0
+network 192.168.1.24 0.0.0.3 area 0

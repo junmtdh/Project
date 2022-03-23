@@ -1,0 +1,25 @@
+r0
+en
+conf t
+ip route 0.0.0.0 0.0.0.0 1.1.1.2
+ip nat pool 000 61.139.10.33 61.139.10.46 netmask 255.255.255.240
+access-list 01 permit 192.168.1.1 0.0.0.255
+access-list 01 permit 192.168.1.2 0.0.0.255
+ip nat inside source list 01 pool 000
+int f0/0
+ip nat inside
+int s0/0/0
+ip nat outside
+
+r1
+en
+conf t
+ip route 61.139.10.32 255.255.255.240 1.1.1.1
+ip route 202.1.1.0 255.255.255.0 2.2.2.2
+
+r2
+en
+conf t
+ip route 1.1.1.0 255.255.255.240 2.2.2.1
+ip route 61.139.10.32 255.255.255.240 2.2.2.1
+ip route 202.10.10.0 255.255.255.0 2.2.2.1
